@@ -1,0 +1,40 @@
+<div class = "row">
+		<div class = "col-md-6 userPicture">
+			<article>
+			<header class = "info"> 
+				<div class = "col-md-1 text-left">
+					<%= link_to user_path(@picture.user_id) do %>
+						<p><%= image_tag(User.find(@picture.user_id).image(:small_thumb), :class => "userThumb") %></p>
+					<% end %>
+				</div>
+
+				<div class = "col-md-5 text-left">
+					<%= link_to user_path(@picture.user_id) do %>
+						<h5><%= User.find(@picture.user_id).name %></h5>
+					<% end %>
+				</div>
+
+				<div class = "col-md-6 text-right">
+					<h5> <%= time_ago_in_words(@picture.created_at) %></h5>
+				</div>
+
+			</header>
+
+			<div class = "picture text-center">
+				<%=image_tag(@picture.image(:large), :class => "style_image")%>
+			</div>
+
+			<div class = "pictureInfo">
+
+				<div class = "col-md-3 text-left">
+					<%= link_to user_path(@picture.user_id) do %>
+						<h5><%= User.find(@picture.user_id).name %></h5>
+					<% end %>
+				</div>
+
+				<div class = "col-md-9 text-left">
+					<h5> <%= @picture.description %> </h5>
+				</div>
+			</div>
+		</div>
+</div>

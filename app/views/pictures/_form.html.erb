@@ -1,0 +1,29 @@
+
+<%= form_for([@user, @picture], html: {multipart: true}) do |f| %> 
+
+<div class = "row text-center">
+	<p>
+		<%= f.label :description %><br>
+		<%= f.text_field :description %> 
+	</p>
+
+</div>
+
+<div class = "row text-center">
+    <p>
+	    <%= f.label :image, "Attach an Image" %><br />
+	    <div class = "col-md-2 col-md-offset-5">
+	    <%= f.file_field :image %>
+	    </div>
+    </p>
+
+</div>
+
+<div class = "row text-center">
+
+	<p>
+		<%= f.submit %>
+	</p>
+</div>
+
+<% end %>

@@ -1,0 +1,79 @@
+
+
+
+<div class = "row">
+	<div class = "col-md-4 center-text text-center">
+		<p><%= image_tag(@user.image(:small), :class => "profilePicture") %></p>
+	</div>
+
+	<div class = "col-md-8">
+		<div class = "row vertical-align">
+			<div class = "col-md-4">
+				<h2> <%= @user.name %> </h2>
+			</div>
+			<div class = "col-md-4">
+			<% if user_signed_in? %>
+				<% if current_user.id == @user.id %> 
+					<%= link_to edit_user_path do %>
+
+					<button type="button" class = "btn btn-default">Edit Profile</button>
+					<% end %>
+				<% end %>
+			<% end %>
+			</div>
+		</div>
+
+		<div class = "row">
+
+			<div class = "col-md-2 text-left">
+			<h4> Posts: <%= @user.pictures.count %> </h4>
+			</div>
+
+			<div class = "col-md-2 text-left">
+			<%= link_to following_user_path(@user) do %>
+			<h4> Following: <%= @user.following.count %> </h4>
+			<% end %>
+			</div>
+
+			<div class = "col-md-2 text-left">
+			<%= link_to followers_user_path(@user) do %>
+			<h4> Followers: <%= @user.followers.count %> </h4>
+			<% end %>
+			</div>
+		</div>
+		<div class = "row">	
+			<div class = "col-md-6">
+			<h5> <%= @user.description %> </h5>
+			</div>
+		</div>	
+
+		<div class = "row">
+			<div class = "col-md-6">
+
+		<% if user_signed_in? && @user != current_user %>
+			<% if current_user.following?(@user) %>
+				<%= render "unfollow" %>
+			<% else %> 
+				<%= render "follow" %>
+			<% end %>
+		<% end %>
+		</div>	
+		</div>
+	</div>	
+</div>
+
+
+<div class = "profileGrid">
+	<% @pictures.in_groups_of(3, false).each  do |pictureRow|%>
+		<div class = "row profileRow">
+			<% pictureRow.each do |picture| %>
+
+				<%= link_to user_picture_path(@user.id, picture.id) do %>
+				<div class = "col-md-4">
+					<p><%= image_tag(picture.image(:medium), :class => "profileGrid") %></p>
+				</div>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
+</div>

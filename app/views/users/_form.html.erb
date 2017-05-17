@@ -1,0 +1,33 @@
+
+<%= form_for @user do |f| %> 
+
+<div class = "row text-center">
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name, :maxlength => 20 %> 
+	</p>
+
+</div>
+<div class = "row text-center">
+	<p>
+
+		<%= f.label :description %><br>
+		<%= f.text_field :description, :maxlength => 75 %> 
+	</p>
+</div>
+
+<div class = "row text-center">
+    <p>
+	    <%= f.label :image, "Attach an Image" %><br />
+	    <%= f.file_field :image %>
+    </p>
+
+</div>
+
+<div class = "row text-center">
+	<p>
+		<%= f.submit %>
+	</p>
+</div>
+
+<% end %>
