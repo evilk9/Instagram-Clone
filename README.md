@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An instagram like site build using Ruby on Rails, {Work In Progress}
 
-Things you may want to cover:
 
-* Ruby version
+TO DO:
 
-* System dependencies
+* Style Followers/Following under User Profile
 
-* Configuration
+* Style Sign Up
 
-* Database creation
+* Add Likes
 
-* Database initialization
+* Add Comments
 
-* How to run the test suite
+* Add ability to search for hashtags and users
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+HOW TO RUN: 
+* rake db:drop db:create db:migrate db:seed 
+
+* Test account can be logged in to via:
+
+* email: admin@admin.com
+* password: adminadmin
